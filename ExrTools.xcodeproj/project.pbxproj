@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0705EED55BA93E55C981B2A3 /* Pods_ExrTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C8F29BD4C0412A25B0EE96 /* Pods_ExrTools.framework */; };
-		5813121B2193134A00CA0B31 /* ExrReactive+ExrCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813121A2193134A00CA0B31 /* ExrReactive+ExrCheckBox.swift */; };
+		5813121B2193134A00CA0B31 /* Reactive+ExrCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */; };
 		58131228219321DC00CA0B31 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131224219321DC00CA0B31 /* MavenPro-Medium.ttf */; };
 		58131229219321DC00CA0B31 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131225219321DC00CA0B31 /* MavenPro-Black.ttf */; };
 		5813122A219321DC00CA0B31 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */; };
@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		1A2A4F1A1B7306E977523943 /* Pods-ExrTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExrTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExrTools/Pods-ExrTools.release.xcconfig"; sourceTree = "<group>"; };
 		33C8F29BD4C0412A25B0EE96 /* Pods_ExrTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExrTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5813121A2193134A00CA0B31 /* ExrReactive+ExrCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExrReactive+ExrCheckBox.swift"; sourceTree = "<group>"; };
+		5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+ExrCheckBox.swift"; sourceTree = "<group>"; };
 		58131224219321DC00CA0B31 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
 		58131225219321DC00CA0B31 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
 		58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		582D8A40219226BE00C30812 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		582D8A46219227DA00C30812 /* ExrUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExrUIViewController.swift; sourceTree = "<group>"; };
 		582D8A48219236AB00C30812 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		582D8A4C2192400B00C30812 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		582D8A4C2192400B00C30812 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ExrTools/Sources/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		587B8CFB2192197B007F9756 /* ExrTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExrTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		587B8CFE2192197B007F9756 /* ExrTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExrTools.h; sourceTree = "<group>"; };
 		587B8CFF2192197B007F9756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,23 +70,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		58131217219312EB00CA0B31 /* ExrCheckBox */ = {
-			isa = PBXGroup;
-			children = (
-				587B8D0621921E1B007F9756 /* ExrCheckBox.swift */,
-				5813121A2193134A00CA0B31 /* ExrReactive+ExrCheckBox.swift */,
-			);
-			path = ExrCheckBox;
-			sourceTree = "<group>";
-		};
-		58131222219321BA00CA0B31 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				58131223219321C200CA0B31 /* MavenPro */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		58131223219321C200CA0B31 /* MavenPro */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,16 +79,6 @@
 				58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */,
 			);
 			path = MavenPro;
-			sourceTree = "<group>";
-		};
-		582D8A4B21923FFA00C30812 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				58131222219321BA00CA0B31 /* Fonts */,
-				582D8A4C2192400B00C30812 /* R.generated.swift */,
-				5813122C2193223100CA0B31 /* Fonts.swift */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		587B8CF12192197B007F9756 = {
@@ -139,8 +112,11 @@
 		587B8D082192237D007F9756 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				58131217219312EB00CA0B31 /* ExrCheckBox */,
-				582D8A4B21923FFA00C30812 /* Resources */,
+				587B8D0621921E1B007F9756 /* ExrCheckBox.swift */,
+				5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */,
+				58131223219321C200CA0B31 /* MavenPro */,
+				582D8A4C2192400B00C30812 /* R.generated.swift */,
+				5813122C2193223100CA0B31 /* Fonts.swift */,
 				582D8A48219236AB00C30812 /* Colors.swift */,
 				582D8A46219227DA00C30812 /* ExrUIViewController.swift */,
 				587B8D092192238E007F9756 /* Extensions */,
@@ -298,7 +274,7 @@
 				582D8A47219227DA00C30812 /* ExrUIViewController.swift in Sources */,
 				582D8A45219226BE00C30812 /* UIDevice.swift in Sources */,
 				582D8A42219226BE00C30812 /* String.swift in Sources */,
-				5813121B2193134A00CA0B31 /* ExrReactive+ExrCheckBox.swift in Sources */,
+				5813121B2193134A00CA0B31 /* Reactive+ExrCheckBox.swift in Sources */,
 				582D8A41219226BE00C30812 /* UIViewController.swift in Sources */,
 				5813122D2193223100CA0B31 /* Fonts.swift in Sources */,
 				587B8D0721921E1B007F9756 /* ExrCheckBox.swift in Sources */,
