@@ -31,8 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A2A4F1A1B7306E977523943 /* Pods-ExrTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExrTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExrTools/Pods-ExrTools.release.xcconfig"; sourceTree = "<group>"; };
-		33C8F29BD4C0412A25B0EE96 /* Pods_ExrTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExrTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+ExrCheckBox.swift"; sourceTree = "<group>"; };
 		58131224219321DC00CA0B31 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
 		58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 		587B8CFE2192197B007F9756 /* ExrTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExrTools.h; sourceTree = "<group>"; };
 		587B8CFF2192197B007F9756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		587B8D0621921E1B007F9756 /* ExrCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExrCheckBox.swift; sourceTree = "<group>"; };
-		6AEB7E1D88938383001EB617 /* Pods-ExrTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExrTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExrTools/Pods-ExrTools.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +86,6 @@
 				581312322193935500CA0B31 /* Rswift.framework */,
 				581312302193935100CA0B31 /* Motion.framework */,
 				5813122E2193934D00CA0B31 /* Material.framework */,
-				33C8F29BD4C0412A25B0EE96 /* Pods_ExrTools.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,7 +105,6 @@
 			children = (
 				587B8CFD2192197B007F9756 /* ExrTools */,
 				587B8CFC2192197B007F9756 /* Products */,
-				C7D47B7BC68AE983C7A8D123 /* Pods */,
 				371E46DFFFBDE90DD69D72FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -158,15 +153,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C7D47B7BC68AE983C7A8D123 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6AEB7E1D88938383001EB617 /* Pods-ExrTools.debug.xcconfig */,
-				1A2A4F1A1B7306E977523943 /* Pods-ExrTools.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -185,7 +171,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 587B8D032192197B007F9756 /* Build configuration list for PBXNativeTarget "ExrTools" */;
 			buildPhases = (
-				E14B7C7023AA7AE46356B48B /* [CP] Check Pods Manifest.lock */,
 				587B8CF62192197B007F9756 /* Headers */,
 				587B8CF72192197B007F9756 /* Sources */,
 				587B8CF82192197B007F9756 /* Frameworks */,
@@ -270,24 +255,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-		E14B7C7023AA7AE46356B48B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ExrTools-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -436,7 +403,6 @@
 		};
 		587B8D042192197B007F9756 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AEB7E1D88938383001EB617 /* Pods-ExrTools.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -469,7 +435,6 @@
 		};
 		587B8D052192197B007F9756 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A2A4F1A1B7306E977523943 /* Pods-ExrTools.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
