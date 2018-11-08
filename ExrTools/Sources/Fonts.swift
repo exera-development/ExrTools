@@ -9,9 +9,9 @@
 import Foundation
 
 class Font: NSObject {
-    private static let MAVEN_REGULAR = R.font.mavenProRegular(size: 16)
-    private static let MAVEN_BOLD = R.font.mavenProBold(size: 16)
-    private static let MAVEN_MEDIUM = R.font.mavenProMedium(size: 16)
+    private static let MAVEN_REGULAR = UIFont(name: "MavenPro-Regular", size: 16)
+    private static let MAVEN_BOLD = UIFont(name: "MavenPro-Bold", size: 16)
+    private static let MAVEN_MEDIUM = UIFont(name: "MavenPro-Medium", size: 16)
     
     public static func REGULAR()-> UIFont{
         return MAVEN_REGULAR! 

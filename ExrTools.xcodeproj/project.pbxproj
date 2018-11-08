@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0705EED55BA93E55C981B2A3 /* Pods_ExrTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C8F29BD4C0412A25B0EE96 /* Pods_ExrTools.framework */; };
 		5813121B2193134A00CA0B31 /* Reactive+ExrCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */; };
 		58131228219321DC00CA0B31 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131224219321DC00CA0B31 /* MavenPro-Medium.ttf */; };
-		58131229219321DC00CA0B31 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131225219321DC00CA0B31 /* MavenPro-Black.ttf */; };
 		5813122A219321DC00CA0B31 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */; };
 		5813122B219321DC00CA0B31 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131227219321DC00CA0B31 /* MavenPro-Bold.ttf */; };
 		5813122D2193223100CA0B31 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813122C2193223100CA0B31 /* Fonts.swift */; };
+		5813122F2193934D00CA0B31 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813122E2193934D00CA0B31 /* Material.framework */; };
+		581312312193935100CA0B31 /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312302193935100CA0B31 /* Motion.framework */; };
+		581312352193935800CA0B31 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312342193935800CA0B31 /* RxAtomic.framework */; };
+		581312372193935C00CA0B31 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312362193935C00CA0B31 /* RxBlocking.framework */; };
+		581312392193935F00CA0B31 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312382193935F00CA0B31 /* RxCocoa.framework */; };
+		5813123B2193936300CA0B31 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813123A2193936300CA0B31 /* RxSwift.framework */; };
+		5813123D2193936900CA0B31 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813123C2193936900CA0B31 /* SnapKit.framework */; };
 		582D8A41219226BE00C30812 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A3C219226BE00C30812 /* UIViewController.swift */; };
 		582D8A42219226BE00C30812 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A3D219226BE00C30812 /* String.swift */; };
 		582D8A43219226BE00C30812 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A3E219226BE00C30812 /* UIView.swift */; };
@@ -21,7 +26,6 @@
 		582D8A45219226BE00C30812 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A40219226BE00C30812 /* UIDevice.swift */; };
 		582D8A47219227DA00C30812 /* ExrUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A46219227DA00C30812 /* ExrUIViewController.swift */; };
 		582D8A49219236AB00C30812 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A48219236AB00C30812 /* Colors.swift */; };
-		582D8A4D2192400B00C30812 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A4C2192400B00C30812 /* R.generated.swift */; };
 		587B8D002192197B007F9756 /* ExrTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 587B8CFE2192197B007F9756 /* ExrTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		587B8D0721921E1B007F9756 /* ExrCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587B8D0621921E1B007F9756 /* ExrCheckBox.swift */; };
 /* End PBXBuildFile section */
@@ -31,10 +35,17 @@
 		33C8F29BD4C0412A25B0EE96 /* Pods_ExrTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExrTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+ExrCheckBox.swift"; sourceTree = "<group>"; };
 		58131224219321DC00CA0B31 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
-		58131225219321DC00CA0B31 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
 		58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
 		58131227219321DC00CA0B31 /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
 		5813122C2193223100CA0B31 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		5813122E2193934D00CA0B31 /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = Carthage/Build/iOS/Material.framework; sourceTree = "<group>"; };
+		581312302193935100CA0B31 /* Motion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Motion.framework; path = Carthage/Build/iOS/Motion.framework; sourceTree = "<group>"; };
+		581312322193935500CA0B31 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
+		581312342193935800CA0B31 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		581312362193935C00CA0B31 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		581312382193935F00CA0B31 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		5813123A2193936300CA0B31 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		5813123C2193936900CA0B31 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		582D8A3C219226BE00C30812 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		582D8A3D219226BE00C30812 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		582D8A3E219226BE00C30812 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -42,7 +53,6 @@
 		582D8A40219226BE00C30812 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		582D8A46219227DA00C30812 /* ExrUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExrUIViewController.swift; sourceTree = "<group>"; };
 		582D8A48219236AB00C30812 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		582D8A4C2192400B00C30812 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ExrTools/Sources/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		587B8CFB2192197B007F9756 /* ExrTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExrTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		587B8CFE2192197B007F9756 /* ExrTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExrTools.h; sourceTree = "<group>"; };
 		587B8CFF2192197B007F9756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,7 +65,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0705EED55BA93E55C981B2A3 /* Pods_ExrTools.framework in Frameworks */,
+				5813122F2193934D00CA0B31 /* Material.framework in Frameworks */,
+				581312312193935100CA0B31 /* Motion.framework in Frameworks */,
+				581312352193935800CA0B31 /* RxAtomic.framework in Frameworks */,
+				581312372193935C00CA0B31 /* RxBlocking.framework in Frameworks */,
+				581312392193935F00CA0B31 /* RxCocoa.framework in Frameworks */,
+				5813123B2193936300CA0B31 /* RxSwift.framework in Frameworks */,
+				5813123D2193936900CA0B31 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +81,14 @@
 		371E46DFFFBDE90DD69D72FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5813123C2193936900CA0B31 /* SnapKit.framework */,
+				5813123A2193936300CA0B31 /* RxSwift.framework */,
+				581312382193935F00CA0B31 /* RxCocoa.framework */,
+				581312362193935C00CA0B31 /* RxBlocking.framework */,
+				581312342193935800CA0B31 /* RxAtomic.framework */,
+				581312322193935500CA0B31 /* Rswift.framework */,
+				581312302193935100CA0B31 /* Motion.framework */,
+				5813122E2193934D00CA0B31 /* Material.framework */,
 				33C8F29BD4C0412A25B0EE96 /* Pods_ExrTools.framework */,
 			);
 			name = Frameworks;
@@ -73,7 +97,6 @@
 		58131223219321C200CA0B31 /* MavenPro */ = {
 			isa = PBXGroup;
 			children = (
-				58131225219321DC00CA0B31 /* MavenPro-Black.ttf */,
 				58131227219321DC00CA0B31 /* MavenPro-Bold.ttf */,
 				58131224219321DC00CA0B31 /* MavenPro-Medium.ttf */,
 				58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */,
@@ -115,7 +138,6 @@
 				587B8D0621921E1B007F9756 /* ExrCheckBox.swift */,
 				5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */,
 				58131223219321C200CA0B31 /* MavenPro */,
-				582D8A4C2192400B00C30812 /* R.generated.swift */,
 				5813122C2193223100CA0B31 /* Fonts.swift */,
 				582D8A48219236AB00C30812 /* Colors.swift */,
 				582D8A46219227DA00C30812 /* ExrUIViewController.swift */,
@@ -164,11 +186,11 @@
 			buildConfigurationList = 587B8D032192197B007F9756 /* Build configuration list for PBXNativeTarget "ExrTools" */;
 			buildPhases = (
 				E14B7C7023AA7AE46356B48B /* [CP] Check Pods Manifest.lock */,
-				582D8A4A21923F3800C30812 /* ShellScript */,
 				587B8CF62192197B007F9756 /* Headers */,
 				587B8CF72192197B007F9756 /* Sources */,
 				587B8CF82192197B007F9756 /* Frameworks */,
 				587B8CF92192197B007F9756 /* Resources */,
+				5813123E2193946800CA0B31 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -216,7 +238,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58131229219321DC00CA0B31 /* MavenPro-Black.ttf in Resources */,
 				5813122A219321DC00CA0B31 /* MavenPro-Regular.ttf in Resources */,
 				58131228219321DC00CA0B31 /* MavenPro-Medium.ttf in Resources */,
 				5813122B219321DC00CA0B31 /* MavenPro-Bold.ttf in Resources */,
@@ -226,7 +247,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		582D8A4A21923F3800C30812 /* ShellScript */ = {
+		5813123E2193946800CA0B31 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -234,6 +255,13 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)//Carthage/Build/iOS/Material.framework",
+				"$(SRCROOT)//Carthage/Build/iOS/Motion.framework",
+				"$(SRCROOT)//Carthage/Build/iOS/RxAtomic.framework",
+				"$(SRCROOT)//Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)//Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)//Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)//Carthage/Build/iOS/SnapKit.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -241,7 +269,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
 		};
 		E14B7C7023AA7AE46356B48B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -270,7 +298,6 @@
 			files = (
 				582D8A43219226BE00C30812 /* UIView.swift in Sources */,
 				582D8A49219236AB00C30812 /* Colors.swift in Sources */,
-				582D8A4D2192400B00C30812 /* R.generated.swift in Sources */,
 				582D8A47219227DA00C30812 /* ExrUIViewController.swift in Sources */,
 				582D8A45219226BE00C30812 /* UIDevice.swift in Sources */,
 				582D8A42219226BE00C30812 /* String.swift in Sources */,
@@ -419,6 +446,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExrTools/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -448,6 +479,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExrTools/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://exera.io"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
-
+  s.swift_version = "4.2"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@github.com:exera-development/ExrTools.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/exera-development/ExrTools.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'Sources/**/**/**/*.{swift,ttf}'
+  s.source_files  = 'ExrTools/Sources/**/*.{swift,ttf}'
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -134,5 +134,10 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+  # s.dependency 'R.swift'
+  # s.dependency 'SnapKit', '~> 4.0.0'
+  # s.dependency 'RxSwift', '~> 4.0'
+  # s.dependency 'RxCocoa', '~> 4.0'
+  # s.dependency 'Material', '~> 2.16.4'
 
 end
