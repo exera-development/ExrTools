@@ -38,7 +38,6 @@
 		5813122C2193223100CA0B31 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		5813122E2193934D00CA0B31 /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = Carthage/Build/iOS/Material.framework; sourceTree = "<group>"; };
 		581312302193935100CA0B31 /* Motion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Motion.framework; path = Carthage/Build/iOS/Motion.framework; sourceTree = "<group>"; };
-		581312322193935500CA0B31 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
 		581312342193935800CA0B31 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		581312362193935C00CA0B31 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		581312382193935F00CA0B31 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -83,7 +82,6 @@
 				581312382193935F00CA0B31 /* RxCocoa.framework */,
 				581312362193935C00CA0B31 /* RxBlocking.framework */,
 				581312342193935800CA0B31 /* RxAtomic.framework */,
-				581312322193935500CA0B31 /* Rswift.framework */,
 				581312302193935100CA0B31 /* Motion.framework */,
 				5813122E2193934D00CA0B31 /* Material.framework */,
 			);
