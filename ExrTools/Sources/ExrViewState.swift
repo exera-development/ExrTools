@@ -13,25 +13,25 @@ public class ExrViewState<T>{
     var state:State
     var error:Error?
     
-    init(){
+    public init(){
         self.state = .INITIAL
         self.data = nil
         self.error = nil
     }
     
-    init(data:T) {
+    public init(data:T) {
         self.data = data
         self.state = .DONE
         self.error = nil
     }
     
-    init(state:State) {
+    public init(state:State) {
         self.data = nil
         self.state = state
         self.error = nil
     }
     
-    init(error:Error) {
+    public init(error:Error) {
         self.data = nil
         self.state = .ERROR
         self.error = error
@@ -39,23 +39,23 @@ public class ExrViewState<T>{
     
 }
 
-enum State {
+public enum State {
     case INITIAL
     case LOADING
     case DONE
     case ERROR
 }
 
-class Error{
+public class Error{
     
     var message=""
     var code: Int = 0
     
-    init(message: String) {
+    public init(message: String) {
         self.message = message
     }
     
-    init(message: String, code:Int) {
+    public init(message: String, code:Int) {
         self.message = message
         self.code = code
     }
