@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Font: NSObject {
+class ExrFont: NSObject {
     private static let MAVEN_REGULAR = UIFont(name: "MavenPro-Regular", size: 16)
     private static let MAVEN_BOLD = UIFont(name: "MavenPro-Bold", size: 16)
     private static let MAVEN_MEDIUM = UIFont(name: "MavenPro-Medium", size: 16)

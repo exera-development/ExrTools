@@ -13,7 +13,7 @@ import RxCocoa
 import Material
 
 protocol ExrViewControllerProtocol {
-    func initView()
+    func initView() 
 }
 
 typealias EXRViewController = ExrUIViewController & ExrViewControllerProtocol
@@ -68,6 +68,8 @@ public class ExrUIViewController: UIViewController {
         controller.initView()
     }
     
+    
+    /// Show progress dialog
     public func showProgress(){
         OperationQueue.main.addOperation {
             let uiView = self.view!
@@ -93,6 +95,8 @@ public class ExrUIViewController: UIViewController {
         }
     }
     
+    
+    /// Hide progress dialog
     public func hideProgress(){
         OperationQueue.main.addOperation {
             self.container.removeFromSuperview()
@@ -101,5 +105,74 @@ public class ExrUIViewController: UIViewController {
         }
     }
 
+    ///Shows alert message
+    func showAlert(message:String, title:String = "Info", okTitle: String = "OK"){
+        OperationQueue.main.addOperation {
+            let alertController = UIAlertController(title: title, message:
+                message, preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: okTitle, style: UIAlertAction.Style.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    /// Helper method to display an alert on any UIViewController subclass. Uses UIAlertController to show an alert
+    ///
+    /// - Parameters:
+    ///   - title: title of the alert
+    ///   - message: message/body of the alert
+    ///   - buttonTitles: (Optional)list of button titles for the alert. Default button i.e "OK" will be shown if this paramter is nil
+    ///   - highlightedButtonIndex: (Optional) index of the button from buttonTitles that should be highlighted. If this parameter is nil no button will be highlighted
+    ///   - completion: (Optional) completion block to be invoked when any one of the buttons is tapped. It passes the index of the tapped button as an argument
+    /// - Returns: UIAlertController object (discardable).
+    @discardableResult public func showAlert(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        var allButtons = buttonTitles ?? [String]()
+        if allButtons.count == 0 {
+            allButtons.append("OK")
+        }
+        
+        for index in 0..<allButtons.count {
+            let buttonTitle = allButtons[index]
+            let action = UIAlertAction(title: buttonTitle, style: .default, handler: { (_) in
+                completion?(index)
+            })
+            alertController.addAction(action)
+            // Check which button to highlight
+            if let highlightedButtonIndex = highlightedButtonIndex, index == highlightedButtonIndex {
+                if #available(iOS 9.0, *) {
+                    alertController.preferredAction = action
+                }
+            }
+        }
+        present(alertController, animated: true, completion: nil)
+        return alertController
+    }
+    
+    /// Helper method to add a UIViewController as a childViewController.
+    ///
+    /// - Parameters:
+    ///   - childViewController: the view controller to add as a child
+    ///   - containerView: the containerView for the child viewcontroller's root view.
+    private func addChildViewController(childViewController: UIViewController, containerView: UIView){
+        let controller = childViewController
+        //add as a childviewcontroller
+        addChild(controller)
+        // Add the child's View as a subview
+        containerView.addSubview(controller.view)
+        controller.view.frame = containerView.bounds
+        controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        // tell the childviewcontroller it's contained in it's parent
+        controller.didMove(toParent: self)
+    }
+    
+    /// Helper method to remove a UIViewController from its parent.
+    public func removeViewAndControllerFromParentViewController() {
+        guard parent != nil else { return }
+        
+        willMove(toParent: nil)
+        removeFromParent()
+        view.removeFromSuperview()
+    }
 
 }

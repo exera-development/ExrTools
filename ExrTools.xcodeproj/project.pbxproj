@@ -11,7 +11,7 @@
 		58131228219321DC00CA0B31 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131224219321DC00CA0B31 /* MavenPro-Medium.ttf */; };
 		5813122A219321DC00CA0B31 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */; };
 		5813122B219321DC00CA0B31 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131227219321DC00CA0B31 /* MavenPro-Bold.ttf */; };
-		5813122D2193223100CA0B31 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813122C2193223100CA0B31 /* Fonts.swift */; };
+		5813122D2193223100CA0B31 /* ExrFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813122C2193223100CA0B31 /* ExrFonts.swift */; };
 		5813122F2193934D00CA0B31 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813122E2193934D00CA0B31 /* Material.framework */; };
 		581312312193935100CA0B31 /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312302193935100CA0B31 /* Motion.framework */; };
 		581312352193935800CA0B31 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312342193935800CA0B31 /* RxAtomic.framework */; };
@@ -19,6 +19,9 @@
 		581312392193935F00CA0B31 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312382193935F00CA0B31 /* RxCocoa.framework */; };
 		5813123B2193936300CA0B31 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813123A2193936300CA0B31 /* RxSwift.framework */; };
 		5813123D2193936900CA0B31 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813123C2193936900CA0B31 /* SnapKit.framework */; };
+		5813E02D219C4BCB002777D8 /* ExrViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813E02C219C4BCB002777D8 /* ExrViewState.swift */; };
+		5813E02F219C4E04002777D8 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813E02E219C4E04002777D8 /* UIAlertController.swift */; };
+		5813E031219C58EC002777D8 /* ExrUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813E030219C58EC002777D8 /* ExrUtils.swift */; };
 		582D8A41219226BE00C30812 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A3C219226BE00C30812 /* UIViewController.swift */; };
 		582D8A42219226BE00C30812 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A3D219226BE00C30812 /* String.swift */; };
 		582D8A43219226BE00C30812 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A3E219226BE00C30812 /* UIView.swift */; };
@@ -35,7 +38,7 @@
 		58131224219321DC00CA0B31 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
 		58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
 		58131227219321DC00CA0B31 /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
-		5813122C2193223100CA0B31 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		5813122C2193223100CA0B31 /* ExrFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExrFonts.swift; sourceTree = "<group>"; };
 		5813122E2193934D00CA0B31 /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = Carthage/Build/iOS/Material.framework; sourceTree = "<group>"; };
 		581312302193935100CA0B31 /* Motion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Motion.framework; path = Carthage/Build/iOS/Motion.framework; sourceTree = "<group>"; };
 		581312342193935800CA0B31 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
@@ -43,6 +46,9 @@
 		581312382193935F00CA0B31 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		5813123A2193936300CA0B31 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		5813123C2193936900CA0B31 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		5813E02C219C4BCB002777D8 /* ExrViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExrViewState.swift; sourceTree = "<group>"; };
+		5813E02E219C4E04002777D8 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		5813E030219C58EC002777D8 /* ExrUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExrUtils.swift; sourceTree = "<group>"; };
 		582D8A3C219226BE00C30812 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		582D8A3D219226BE00C30812 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		582D8A3E219226BE00C30812 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -131,10 +137,12 @@
 				587B8D0621921E1B007F9756 /* ExrCheckBox.swift */,
 				5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */,
 				58131223219321C200CA0B31 /* MavenPro */,
-				5813122C2193223100CA0B31 /* Fonts.swift */,
+				5813122C2193223100CA0B31 /* ExrFonts.swift */,
 				582D8A48219236AB00C30812 /* Colors.swift */,
 				582D8A46219227DA00C30812 /* ExrUIViewController.swift */,
 				587B8D092192238E007F9756 /* Extensions */,
+				5813E02C219C4BCB002777D8 /* ExrViewState.swift */,
+				5813E030219C58EC002777D8 /* ExrUtils.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 				582D8A40219226BE00C30812 /* UIDevice.swift */,
 				582D8A3E219226BE00C30812 /* UIView.swift */,
 				582D8A3C219226BE00C30812 /* UIViewController.swift */,
+				5813E02E219C4E04002777D8 /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,11 +273,14 @@
 				582D8A43219226BE00C30812 /* UIView.swift in Sources */,
 				582D8A49219236AB00C30812 /* Colors.swift in Sources */,
 				582D8A47219227DA00C30812 /* ExrUIViewController.swift in Sources */,
+				5813E031219C58EC002777D8 /* ExrUtils.swift in Sources */,
 				582D8A45219226BE00C30812 /* UIDevice.swift in Sources */,
+				5813E02F219C4E04002777D8 /* UIAlertController.swift in Sources */,
 				582D8A42219226BE00C30812 /* String.swift in Sources */,
 				5813121B2193134A00CA0B31 /* Reactive+ExrCheckBox.swift in Sources */,
+				5813E02D219C4BCB002777D8 /* ExrViewState.swift in Sources */,
 				582D8A41219226BE00C30812 /* UIViewController.swift in Sources */,
-				5813122D2193223100CA0B31 /* Fonts.swift in Sources */,
+				5813122D2193223100CA0B31 /* ExrFonts.swift in Sources */,
 				587B8D0721921E1B007F9756 /* ExrCheckBox.swift in Sources */,
 				582D8A44219226BE00C30812 /* UIColor.swift in Sources */,
 			);

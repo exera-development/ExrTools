@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ExrTools"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "It's a collection of Tools made for us"
 
   # This description is used to generate tags and improve search results.
@@ -121,10 +121,11 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  s.ios.frameworks = 'UIKit', 'Foundation'
 
   # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+  # s.libraries = 'Snapkit', 'RxSwift', 'RxCocoa', 'RxBlocking', 'RxAtomic',
+  #                   'Motion', 'Material'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -138,9 +139,9 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
   # s.dependency 'R.swift'
-  # s.dependency 'SnapKit', '~> 4.0.0'
-  # s.dependency 'RxSwift', '~> 4.0'
-  # s.dependency 'RxCocoa', '~> 4.0'
-  # s.dependency 'Material', '~> 2.16.4'
+  s.dependency 'SnapKit', '~> 4.0.0'
+  s.dependency 'RxSwift', '~> 4.0'
+  s.dependency 'RxCocoa', '~> 4.0'
+  s.dependency 'Material', '~> 2.16.4'
 
 end
