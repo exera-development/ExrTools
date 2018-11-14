@@ -17,7 +17,7 @@ extension UIDevice {
         case iPhone7Plus = "iPhone 7 Plus"
     }
     
-    var platform: DevicePlatform {
+    public var platform: DevicePlatform {
         get {
             var sysinfo = utsname()
             uname(&sysinfo)
@@ -37,14 +37,14 @@ extension UIDevice {
         }
     }
     
-    var hasTapticEngine: Bool {
+    public var hasTapticEngine: Bool {
         get {
             return platform == .iPhone6S || platform == .iPhone6SPlus ||
                 platform == .iPhone7 || platform == .iPhone7Plus
         }
     }
     
-    var hasHapticFeedback: Bool {
+    public var hasHapticFeedback: Bool {
         get {
             return platform == .iPhone7 || platform == .iPhone7Plus
         }

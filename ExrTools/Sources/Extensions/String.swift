@@ -148,7 +148,7 @@ extension String{
         self = String(chars)
     }
     
-    /// SwifterSwift: Safely subscript string with index.
+    /// Safely subscript string with index.
     ///
     ///        "Hello World!"[safe: 3] -> "l"
     ///        "Hello World!"[safe: 20] -> nil

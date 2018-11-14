@@ -10,11 +10,11 @@ import Foundation
 
 extension UIAlertController {
     
-    func show() {
+    public func show() {
         present(animated: true, completion: nil)
     }
     
-    func present(animated: Bool, completion: (() -> Void)?) {
+    public func present(animated: Bool, completion: (() -> Void)?) {
         if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
             presentFromController(controller: rootVC, animated: animated, completion: completion)
         }

@@ -106,7 +106,7 @@ public class ExrUIViewController: UIViewController {
     }
 
     ///Shows alert message
-    func showAlert(message:String, title:String = "Info", okTitle: String = "OK"){
+    public func showAlert(message:String, title:String = "Info", okTitle: String = "OK"){
         OperationQueue.main.addOperation {
             let alertController = UIAlertController(title: title, message:
                 message, preferredStyle: UIAlertController.Style.alert)
@@ -153,7 +153,7 @@ public class ExrUIViewController: UIViewController {
     /// - Parameters:
     ///   - childViewController: the view controller to add as a child
     ///   - containerView: the containerView for the child viewcontroller's root view.
-    private func addChildViewController(childViewController: UIViewController, containerView: UIView){
+    public func addChildViewController(childViewController: UIViewController, containerView: UIView){
         let controller = childViewController
         //add as a childviewcontroller
         addChild(controller)

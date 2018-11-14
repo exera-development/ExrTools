@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ExrViewState<T>{
+public class ExrViewState<T>{
     var data:T?
     var state:State
     var error:Error?
