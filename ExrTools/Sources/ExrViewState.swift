@@ -9,9 +9,9 @@
 import Foundation
 
 public class ExrViewState<T>{
-    var data:T?
-    var state:State
-    var error:Error?
+    public var data:T?
+    public var state:State
+    public var error:Error?
     
     public init(){
         self.state = .INITIAL
@@ -48,8 +48,8 @@ public enum State {
 
 public class Error{
     
-    var message=""
-    var code: Int = 0
+    public var message=""
+    public var code: Int = 0
     
     public init(message: String) {
         self.message = message

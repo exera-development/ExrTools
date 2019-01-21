@@ -12,13 +12,13 @@ import RxSwift
 import RxCocoa
 import Material
 
-protocol ExrViewControllerProtocol {
+public protocol ExrViewControllerProtocol {
     func initView() 
 }
 
-typealias EXRViewController = ExrUIViewController & ExrViewControllerProtocol
+public typealias EXRViewController = ExrUIViewController & ExrViewControllerProtocol
 
-public class ExrUIViewController: UIViewController {
+open class ExrUIViewController: UIViewController {
     
     private let container: UIView = UIView()
     private let loadingView: UIView = UIView()
@@ -32,6 +32,26 @@ public class ExrUIViewController: UIViewController {
         return view
     }()
     
+    //header
+    private let headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Colors.colorPrimaryDark
+        return view
+    }()
+    
+    private let backButton: IconButton = {
+        let button = IconButton()
+        button.image = Icon.arrowBack
+        button.tintColor = Colors.white
+        return button
+    }()
+    
+    public let headerContainer: UIView = {
+        let view = UIView()
+        return view
+    }()
+    //header end
+    
     public var mainView: UIView{
         get{
             return self.mMainView
@@ -40,8 +60,10 @@ public class ExrUIViewController: UIViewController {
             self.mMainView.addSubview(newValue)
         }   
     }
+    
+    
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Colors.colorPrimary
@@ -66,6 +88,37 @@ public class ExrUIViewController: UIViewController {
         }
         
         controller.initView()
+    }
+    
+    public func addHeaderView(){
+        self.mainView.addSubview(headerView)
+        headerView.snp.makeConstraints { (make) in
+            make.height.equalTo(50)
+            make.top.equalTo(mainView)
+            make.right.equalTo(mainView)
+            make.left.equalTo(mainView)
+        }
+        
+        headerView.addSubview(backButton)
+        backButton.snp.makeConstraints { (make) in
+            make.left.equalTo(headerView).offset(15)
+            make.centerY.equalTo(headerView)
+        }
+        
+        headerView.addSubview(headerContainer)
+        headerContainer.snp.makeConstraints { (make) in
+            make.left.equalTo(backButton.snp.right)
+            make.right.equalToSuperview().offset(-15)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        backButton.rx.tap
+            .debounce(0.1, scheduler: MainScheduler.instance)
+            .subscribe({ _ in
+                self.navigationController?.popViewController(animated: true)
+            }).disposed(by: disposeBag)
+        
     }
     
     
