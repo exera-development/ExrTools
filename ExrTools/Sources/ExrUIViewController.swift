@@ -28,7 +28,13 @@ open class ExrUIViewController: UIViewController {
     
     private let mMainView: UIView = {
         let view = UIView()
-        view.backgroundColor = Colors.colorPrimary
+        view.backgroundColor = Colors.white
+        return view
+    }()
+    
+    private let bottomView: UIView = {
+       let view = UIView()
+        view.backgroundColor = Colors.white
         return view
     }()
     
@@ -61,8 +67,24 @@ open class ExrUIViewController: UIViewController {
         }   
     }
     
+    public var topColor: UIColor {
+        get{
+            return self.view.backgroundColor == nil ? Colors.white : self.view.backgroundColor!
+        }
+        set{
+           self.view.backgroundColor = newValue
+        }
+    }
     
-
+    public var bottomColor: UIColor {
+        get{
+            return self.bottomView.backgroundColor == nil ? Colors.white : self.bottomView.backgroundColor!
+        }
+        set{
+            self.bottomView.backgroundColor = newValue
+        }
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +103,13 @@ open class ExrUIViewController: UIViewController {
                 make.right.equalTo(self.view.snp.right).offset(0)
                 make.left.equalTo(self.view.snp.left).offset(0)
             }
+        }
+        
+        bottomView.snp.makeConstraints { (make) in
+            make.top.equalTo(mMainView.snp.bottom)
+            make.bottom.equalTo(self.view.snp.bottom).offset(0)
+            make.right.equalTo(self.view.snp.right).offset(0)
+            make.left.equalTo(self.view.snp.left).offset(0)
         }
         
         guard let controller = self as? EXRViewController else {

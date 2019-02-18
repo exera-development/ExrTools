@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ExrTools"
-  s.version      = "0.0.7"
+  s.version      = "0.0.9"
   s.summary      = "It's a collection of Tools made for us"
 
   # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   - Extensions
                    DESC
 
-  s.homepage     = "http://exera.io"
+  s.homepage     = "https://exera.io"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
   s.swift_version = "4.2"
 
