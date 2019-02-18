@@ -105,6 +105,8 @@ open class ExrUIViewController: UIViewController {
             }
         }
         
+        view.addSubview(bottomView)
+        
         bottomView.snp.makeConstraints { (make) in
             make.top.equalTo(mMainView.snp.bottom)
             make.bottom.equalTo(self.view.snp.bottom).offset(0)
