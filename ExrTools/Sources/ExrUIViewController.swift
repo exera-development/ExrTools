@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Material
 import SnapKit
 
 public protocol ExrViewControllerProtocol {
@@ -45,9 +44,9 @@ open class ExrUIViewController: UIViewController {
         return view
     }()
     
-    private let backButton: IconButton = {
-        let button = IconButton()
-        button.image = Icon.arrowBack
+    private let backButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("BACK", for: .normal)
         button.tintColor = Colors.white
         return button
     }()

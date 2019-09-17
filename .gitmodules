@@ -1,0 +1,6 @@
+[submodule "Libraries/RxSwift"]
+	path = Libraries/RxSwift
+	url = git@github.com:ReactiveX/RxSwift.git
+[submodule "Libraries/SnapKit"]
+	path = Libraries/SnapKit
+	url = https://github.com/SnapKit/SnapKit.git

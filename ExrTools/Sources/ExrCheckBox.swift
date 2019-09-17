@@ -88,8 +88,8 @@ public class ExrCheckBox: UIButton {
         self.contentHorizontalAlignment = .left
         self.setTitle("", for: .normal)
         self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let _ = mCheckedImage?.tint(with: Colors.colorAccent)
-        let _ = mUncheckedImage?.tint(with: Colors.colorAccent)
+        let _ = mCheckedImage?.tint(color: Colors.colorAccent)
+        let _ = mUncheckedImage?.tint(color: Colors.colorAccent)
         isChecked.asObservable().subscribe { (checked) in
             if(checked.element!){
                 self.setImage(self.mCheckedImage, for: UIControl.State.normal)
