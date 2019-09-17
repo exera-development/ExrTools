@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ExrTools"
-  s.version      = "0.0.11"
-  s.summary      = "It's a collection of Tools made for us"
+  s.version      = "0.0.14"
+  s.summary      = "It's a collection of Tools"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "10.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -138,11 +138,10 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
-  s.dependency 'SnapKit', '~> 4.2.0'
-  s.dependency 'RxSwift', '~> 4.5.0'
-  s.dependency 'RxCocoa', '~> 4.5.0'
-  s.dependency 'Motion', '~> 3.1.1'
-  s.dependency 'R.swift.library', '~> v5.0.1'
-  s.dependency 'Material', '~> 2.16.4'
+  #s.dependency 'SnapKit', '~> 5.0.1'
+  #s.dependency 'RxSwift', '~> 5.0.0'
+  #s.dependency 'RxCocoa', '~> 5.0.0'
+  #s.dependency 'Motion', '~> 3.1.0'
+  #s.dependency 'Material', '~> 3.1.0'
 
 end
