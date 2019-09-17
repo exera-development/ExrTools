@@ -1,40 +1,29 @@
 /*
- * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * The MIT License (MIT)
+ *
+ * Copyright (C) 2019, CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- *	*	Redistributions of source code must retain the above copyright notice, this
- *		list of conditions and the following disclaimer.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  *
- *	*	Redistributions in binary form must reproduce the above copyright notice,
- *		this list of conditions and the following disclaimer in the documentation
- *		and/or other materials provided with the distribution.
- *
- *	*	Neither the name of CosmicMind nor the names of its
- *		contributors may be used to endorse or promote products derived from
- *		this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
 import UIKit
-
-@objc(SwitchStyle)
-public enum SwitchStyle: Int {
-  case light
-  case dark
-}
 
 @objc(SwitchState)
 public enum SwitchState: Int {
@@ -42,11 +31,11 @@ public enum SwitchState: Int {
   case off
 }
 
-@objc(SwitchSize)
-public enum SwitchSize: Int {
+public enum SwitchSize {
   case small
   case medium
   case large
+  case custom(width: CGFloat, height: CGFloat)
 }
 
 @objc(SwitchDelegate)
@@ -59,7 +48,7 @@ public protocol SwitchDelegate {
   func switchDidChangeState(control: Switch, state: SwitchState)
 }
 
-open class Switch: UIControl {
+open class Switch: UIControl, Themeable {
   /// Will layout the view.
   open var willLayout: Bool {
     return 0 < bounds.width && 0 < bounds.height && nil != superview
@@ -69,10 +58,18 @@ open class Switch: UIControl {
   fileprivate var internalSwitchState = SwitchState.off
   
   /// Track thickness.
-  fileprivate var trackThickness: CGFloat = 0
+  open var trackThickness: CGFloat = 0 {
+    didSet {
+      layoutSubviews()
+    }
+  }
   
   /// Button diameter.
-  fileprivate var buttonDiameter: CGFloat = 0
+  open var buttonDiameter: CGFloat = 0 {
+    didSet {
+      layoutSubviews()
+    }
+  }
   
   /// Position when in the .on state.
   fileprivate var onPosition: CGFloat = 0
@@ -105,6 +102,22 @@ open class Switch: UIControl {
   /// Button off color.
   @IBInspectable
   open var buttonOffColor = Color.clear {
+    didSet {
+      styleForState(state: switchState)
+    }
+  }
+  
+  /// Button on image.
+  @IBInspectable
+  open var buttonOnImage: UIImage? {
+    didSet {
+      styleForState(state: switchState)
+    }
+  }
+  
+  /// Button off image.
+  @IBInspectable
+  open var buttonOffImage: UIImage? {
     didSet {
       styleForState(state: switchState)
     }
@@ -158,6 +171,23 @@ open class Switch: UIControl {
     }
   }
   
+  /// Button on disabled image.
+  @IBInspectable
+  open var buttonOnDisabledImage: UIImage? {
+    didSet {
+      styleForState(state: switchState)
+    }
+  }
+  
+  /// Button off disabled image.
+  @IBInspectable
+  open var buttonOffDisabledImage: UIImage? {
+    didSet {
+      styleForState(state: switchState)
+    }
+  }
+  
+  
   /// Track view reference.
   open fileprivate(set) var track: UIView {
     didSet {
@@ -200,32 +230,6 @@ open class Switch: UIControl {
     }
   }
   
-  /// Switch style.
-  open var switchStyle = SwitchStyle.dark {
-    didSet {
-      switch switchStyle {
-      case .light:
-        buttonOnColor = Color.blue.darken2
-        trackOnColor = Color.blue.lighten3
-        buttonOffColor = Color.blueGrey.lighten4
-        trackOffColor = Color.grey.lighten2
-        buttonOnDisabledColor = Color.grey.lighten2
-        trackOnDisabledColor = Color.grey.lighten2
-        buttonOffDisabledColor = Color.grey.lighten2
-        trackOffDisabledColor = Color.grey.lighten2
-      case .dark:
-        buttonOnColor = Color.blue.lighten1
-        trackOnColor = Color.blue.lighten2.withAlphaComponent(0.5)
-        buttonOffColor = Color.grey.lighten2
-        trackOffColor = Color.blueGrey.lighten4.withAlphaComponent(0.5)
-        buttonOnDisabledColor = Color.grey.darken3
-        trackOnDisabledColor = Color.grey.lighten1.withAlphaComponent(0.2)
-        buttonOffDisabledColor = Color.grey.darken3
-        trackOffDisabledColor = Color.grey.lighten1.withAlphaComponent(0.2)
-      }
-    }
-  }
-  
   /// Switch size.
   open var switchSize = SwitchSize.medium {
     didSet {
@@ -239,6 +243,8 @@ open class Switch: UIControl {
       case .large:
         trackThickness = 24
         buttonDiameter = 28
+      case .custom:
+        break
       }
       
       frame.size = intrinsicContentSize
@@ -253,6 +259,8 @@ open class Switch: UIControl {
       return CGSize(width: 38, height: 38)
     case .large:
       return CGSize(width: 42, height: 42)
+    case .custom(let width, let height):
+      return CGSize(width: width, height: height)
     }
   }
   
@@ -287,13 +295,12 @@ open class Switch: UIControl {
    - Parameter style: A SwitchStyle value.
    - Parameter size: A SwitchSize value.
    */
-  public init(state: SwitchState = .off, style: SwitchStyle = .dark, size: SwitchSize = .medium) {
+  public init(state: SwitchState = .off, size: SwitchSize = .medium) {
     track = UIView()
     button = FABButton()
     super.init(frame: .zero)
     prepare()
     prepareSwitchState(state: state)
-    prepareSwitchStyle(style: style)
     prepareSwitchSize(size: size)
   }
   
@@ -356,8 +363,24 @@ open class Switch: UIControl {
     prepareTrack()
     prepareButton()
     prepareSwitchState()
-    prepareSwitchStyle()
     prepareSwitchSize()
+    applyCurrentTheme()
+  }
+  
+  /**
+   Applies the given theme.
+   - Parameter theme: A Theme.
+   */
+  open func apply(theme: Theme) {
+    buttonOnColor = theme.secondary
+    trackOnColor = theme.secondary.withAlphaComponent(0.60)
+    buttonOffColor = theme.surface.blend(with: theme.onSurface.withAlphaComponent(0.15).blend(with: theme.secondary.withAlphaComponent(0.06)))
+    trackOffColor = theme.onSurface.withAlphaComponent(0.12)
+    
+    buttonOnDisabledColor = theme.surface.blend(with: theme.onSurface.withAlphaComponent(0.15))
+    trackOnDisabledColor = theme.onSurface.withAlphaComponent(0.15)
+    buttonOffDisabledColor = buttonOnDisabledColor
+    trackOffDisabledColor = trackOnDisabledColor
   }
 }
 
@@ -382,7 +405,7 @@ fileprivate extension Switch {
    state was changed by a user interaction, true if yes, false otherwise.
    - Parameter completion: An Optional completion block.
    */
-  fileprivate func updateSwitchState(state: SwitchState, animated: Bool, isTriggeredByUserInteraction: Bool, completion: ((Switch) -> Void)? = nil) {
+  func updateSwitchState(state: SwitchState, animated: Bool, isTriggeredByUserInteraction: Bool, completion: ((Switch) -> Void)? = nil) {
     guard isEnabled && internalSwitchState != state else {
       return
     }
@@ -391,11 +414,12 @@ fileprivate extension Switch {
     
     if animated {
       animateToState(state: state) { [weak self, isTriggeredByUserInteraction = isTriggeredByUserInteraction] _ in
-        guard isTriggeredByUserInteraction else {
+        guard let s = self else {
           return
         }
         
-        guard let s = self else {
+        guard isTriggeredByUserInteraction else {
+          completion?(s)
           return
         }
         
@@ -408,6 +432,7 @@ fileprivate extension Switch {
       styleForState(state: state)
       
       guard isTriggeredByUserInteraction else {
+        completion?(self)
         return
       }
       
@@ -425,9 +450,11 @@ fileprivate extension Switch {
     if .on == state {
       button.backgroundColor = buttonOnColor
       track.backgroundColor = trackOnColor
+      button.image = buttonOnImage
     } else {
       button.backgroundColor = buttonOffColor
       track.backgroundColor = trackOffColor
+      button.image = buttonOffImage
     }
   }
   
@@ -439,9 +466,11 @@ fileprivate extension Switch {
     if .on == state {
       button.backgroundColor = buttonOnDisabledColor
       track.backgroundColor = trackOnDisabledColor
+      button.image = buttonOnDisabledImage
     } else {
       button.backgroundColor = buttonOffDisabledColor
       track.backgroundColor = trackOffDisabledColor
+      button.image = buttonOffDisabledImage
     }
   }
   
@@ -452,7 +481,7 @@ fileprivate extension Switch {
   func styleForState(state: SwitchState) {
     if isEnabled {
       updateColorForState(state: state)
-    
+      
     } else {
       updateColorForDisabledState(state: state)
     }
@@ -562,15 +591,6 @@ fileprivate extension Switch {
    */
   func prepareSwitchState(state: SwitchState = .off) {
     updateSwitchState(state: state, animated: false, isTriggeredByUserInteraction: false)
-  }
-  
-  /**
-   Prepares the switchStyle property. This is used mainly to allow
-   init to set the state value and have an effect.
-   - Parameter style: The SwitchStyle to set.
-   */
-  func prepareSwitchStyle(style: SwitchStyle = .light) {
-    switchStyle = style
   }
   
   /**

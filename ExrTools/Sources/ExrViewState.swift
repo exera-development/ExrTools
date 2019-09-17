@@ -9,9 +9,9 @@
 import Foundation
 
 public class ExrViewState<T>{
-    public var data:T?
-    public var state:State
-    public var error:Error?
+    public var data: T?
+    public var state: State
+    public var error: ExrError?
     
     public init(){
         self.state = .INITIAL
@@ -19,19 +19,19 @@ public class ExrViewState<T>{
         self.error = nil
     }
     
-    public init(data:T) {
+    public init(data: T) {
         self.data = data
         self.state = .DONE
         self.error = nil
     }
     
-    public init(state:State) {
+    public init(state: State) {
         self.data = nil
         self.state = state
         self.error = nil
     }
     
-    public init(error:Error) {
+    public init(error: ExrError) {
         self.data = nil
         self.state = .ERROR
         self.error = error
@@ -46,7 +46,7 @@ public enum State {
     case ERROR
 }
 
-public class Error{
+public class ExrError{
     
     public var message=""
     public var code: Int = 0

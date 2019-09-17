@@ -1,31 +1,26 @@
 /*
- * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * The MIT License (MIT)
+ *
+ * Copyright (C) 2019, CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- *	*	Redistributions of source code must retain the above copyright notice, this
- *		list of conditions and the following disclaimer.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  *
- *	*	Redistributions in binary form must reproduce the above copyright notice,
- *		this list of conditions and the following disclaimer in the documentation
- *		and/or other materials provided with the distribution.
- *
- *	*	Neither the name of CosmicMind nor the names of its
- *		contributors may be used to endorse or promote products derived from
- *		this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
 import UIKit
@@ -46,9 +41,30 @@ open class TransitionController: ViewController {
     }
   }
   
+  /// A Boolean indicating whether the controller is in transitioning state.
+  open var isTransitioning: Bool {
+    return MotionTransition.shared.isTransitioning && MotionTransition.shared.fromViewController == rootViewController
+  }
+  
+  open override var childForStatusBarStyle: UIViewController? {
+    return isTransitioning ? MotionTransition.shared.toViewController ?? rootViewController : rootViewController
+  }
+  
+  open override var childForStatusBarHidden: UIViewController? {
+    return childForStatusBarStyle
+  }
+  
+  open override var childForHomeIndicatorAutoHidden: UIViewController? {
+    return childForStatusBarStyle
+  }
+  
+  open override var childForScreenEdgesDeferringSystemGestures: UIViewController? {
+    return childForStatusBarStyle
+  }
+  
   /// A reference to the container view.
   @IBInspectable
-  open let container = UIView()
+  public let container = UIView()
   
   /**
    A UIViewController property that references the active
@@ -131,25 +147,29 @@ open class TransitionController: ViewController {
   open func transition(to viewController: UIViewController, completion: ((Bool) -> Void)? = nil) {
     prepare(viewController: viewController, in: container)
     
-    switch motionTransitionType {
-    case .auto:break
-    default:
-      switch viewController.motionTransitionType {
-      case .auto:
-        viewController.motionTransitionType = motionTransitionType
-      default:break
-      }
+    if case .auto = viewController.motionTransitionType {
+      viewController.motionTransitionType = motionTransitionType
     }
     
     view.isUserInteractionEnabled = false
-    MotionTransition.shared.transition(from: rootViewController, to: viewController, in: container) { [weak self, viewController = viewController, completion = completion] (isFinishing) in
+    MotionTransition.shared.transition(from: rootViewController, to: viewController, in: container) { [weak self] isFinishing in
       guard let s = self else {
         return
       }
       
+      defer {
+        s.view.isUserInteractionEnabled = true
+        completion?(isFinishing)
+      }
+      
+      guard isFinishing else {
+        s.removeViewController(viewController: viewController)
+        s.removeViewController(viewController: s.rootViewController)
+        s.prepare(viewController: s.rootViewController, in: s.container)
+        return
+      }
+      
       s.rootViewController = viewController
-      s.view.isUserInteractionEnabled = true
-      completion?(isFinishing)
     }
   }
   
@@ -185,9 +205,9 @@ internal extension TransitionController {
    passed in controller view within the view hierarchy.
    */
   func prepare(viewController: UIViewController, in container: UIView) {
-    addChildViewController(viewController)
+    addChild(viewController)
     container.addSubview(viewController.view)
-    viewController.didMove(toParentViewController: self)
+    viewController.didMove(toParent: self)
     viewController.view.frame = container.bounds
     viewController.view.clipsToBounds = true
     viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -201,8 +221,8 @@ internal extension TransitionController {
    - Parameter at index: An Int for the view controller position.
    */
   func removeViewController(viewController: UIViewController) {
-    viewController.willMove(toParentViewController: nil)
+    viewController.willMove(toParent: nil)
     viewController.view.removeFromSuperview()
-    viewController.removeFromParentViewController()
+    viewController.removeFromParent()
   }
 }

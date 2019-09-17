@@ -1,9 +1,10 @@
 {
-  "commitish" : "2.16.4",
+  "commitish" : "3.1.7",
   "iOS" : [
     {
       "name" : "Material",
-      "hash" : "9c479adc621057eeea237eec5cb3e5cca005491d55724386ba6ae0316bdbdf9d"
+      "hash" : "a65ff5c3e523e050bbbaea2e0c5f34bc14713f2a591d54d857b222fa4632720e",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ]
 }

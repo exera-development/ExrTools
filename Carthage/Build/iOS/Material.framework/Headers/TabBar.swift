@@ -1,34 +1,30 @@
 /*
- * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * The MIT License (MIT)
+ *
+ * Copyright (C) 2019, CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- *	*	Redistributions of source code must retain the above copyright notice, this
- *		list of conditions and the following disclaimer.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  *
- *	*	Redistributions in binary form must reproduce the above copyright notice,
- *		this list of conditions and the following disclaimer in the documentation
- *		and/or other materials provided with the distribution.
- *
- *	*	Neither the name of CosmicMind nor the names of its
- *		contributors may be used to endorse or promote products derived from
- *		this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
 import UIKit
+import Motion
 
 open class TabItem: FlatButton {
   /// A dictionary of TabItemStates to UIColors for states.
@@ -241,7 +237,7 @@ open class TabBar: Bar {
       layoutSubviews()
     }
   }
-
+  
   /// An enum that determines the tab bar centering style.
   open var tabBarCenteringStyle = TabBarCenteringStyle.always {
     didSet {
@@ -257,7 +253,7 @@ open class TabBar: Bar {
   }
   
   /// A reference to the scroll view when the tab bar style is scrollable.
-  open let scrollView = UIScrollView()
+  public let scrollView = UIScrollView()
   
   /// Enables and disables bouncing when swiping.
   open var isScrollBounceEnabled: Bool {
@@ -278,6 +274,7 @@ open class TabBar: Bar {
     didSet {
       oldValue?.isSelected = false
       selectedTabItem?.isSelected = true
+      updateScrollView()
     }
   }
   
@@ -337,7 +334,7 @@ open class TabBar: Bar {
   }
   
   /// A reference to the line UIView.
-  open let line = UIView()
+  public let line = UIView()
   
   /// A value for the line alignment.
   @objc
@@ -392,7 +389,7 @@ open class TabBar: Bar {
     prepareDivider()
     prepareLine()
     prepareLineColor()
-
+    
     updateLineColors()
   }
 }
@@ -574,6 +571,57 @@ extension TabBar {
   }
 }
 
+internal extension TabBar {
+  /**
+   Starts line transition for the index with the given duration.
+   - Parameter for index: An Int.
+   - Parameter duration: A TimeInterval.
+   */
+  func startLineTransition(for index: Int, duration: TimeInterval = 0.35) {
+    guard let s = selectedTabItem, let currentIndex = tabItems.firstIndex(of: s) else {
+      return
+    }
+    
+    guard currentIndex != index else {
+      return
+    }
+    
+    let targetFrame = lineFrame(for: tabItems[index], forMotion: true)
+    
+    line.transition(.size(targetFrame.size),
+                    .position(targetFrame.origin),
+                    .duration(duration))
+    
+    line.motionViewTransition.start()
+  }
+  
+  /**
+   Updates line transition to the given progress value.
+   - Parameter _ progress: A CGFloat.
+   */
+  func updateLineTransition(_ progress: CGFloat) {
+    line.motionViewTransition.update(progress)
+  }
+  
+  /**
+   Finishes line transition.
+   - Parameter isAnimated: A Boolean indicating if the change should be animated.
+   */
+  func finishLineTransition(isAnimated: Bool = true) {
+    line.motionViewTransition.finish(isAnimated: isAnimated)
+    line.transition([])
+  }
+  
+  /**
+   Cancels line transition.
+   - Parameter isAnimated: A Boolean indicating if the change should be animated.
+   */
+  func cancelLineTransition(isAnimated: Bool = true) {
+    line.motionViewTransition.cancel(isAnimated: isAnimated)
+    line.transition([])
+  }
+}
+
 fileprivate extension TabBar {
   /**
    Removes the tabItem animation handler.
@@ -653,15 +701,15 @@ fileprivate extension TabBar {
                  .size(f.size),
                  .position(f.origin),
                  .completion({ [weak self, isTriggeredByUserInteraction = isTriggeredByUserInteraction, tabItem = tabItem, completion = completion] in
-                    guard let `self` = self else {
-                      return
-                    }
+                  guard let `self` = self else {
+                    return
+                  }
                   
-                    if isTriggeredByUserInteraction {
-                      self.delegate?.tabBar?(tabBar: self, didSelect: tabItem)
-                    }
-    
-                    completion?(tabItem)
+                  if isTriggeredByUserInteraction {
+                    self.delegate?.tabBar?(tabBar: self, didSelect: tabItem)
+                  }
+                  
+                  completion?(tabItem)
                  }))
     
     updateScrollView()
@@ -688,12 +736,12 @@ fileprivate extension TabBar {
         
       case .always:
         return v.center.x - bounds.width / 2
-      
+        
       case .never:
         guard shouldScroll else {
           return nil
         }
-      
+        
         return v.frame.origin.x < scrollView.bounds.minX ? v.frame.origin.x : v.frame.maxX - scrollView.bounds.width
       }
     }()

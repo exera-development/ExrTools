@@ -26,7 +26,7 @@ extension Date {
     ///     * HH:mm:ss.SSS                ->      13:21:15.951    
     ///
     /// - Returns: the formated string date
-    func convertToString(dateformat formatType: String) -> String {
+    public func convertToString(dateformat formatType: String) -> String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatType // Your New Date format as per requirement change it own
@@ -37,14 +37,14 @@ extension Date {
     
     
     /// Converts date to milliseconds
-    var milliseconds:Int {
+    public var milliseconds:Int {
         return Int((self.timeIntervalSince1970 * 1000.0).rounded())
     }
     
     /// Creates Date from milliseconds
     ///
     /// - Parameter milliseconds: milliseconds
-    init(milliseconds:Int) {
+    public init(milliseconds:Int) {
         self = Date(timeIntervalSince1970: TimeInterval(milliseconds) / 1000)
     }
     

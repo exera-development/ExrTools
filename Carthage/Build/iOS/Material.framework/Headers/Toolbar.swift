@@ -1,38 +1,31 @@
 /*
- * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * The MIT License (MIT)
+ *
+ * Copyright (C) 2019, CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- *	*	Redistributions of source code must retain the above copyright notice, this
- *		list of conditions and the following disclaimer.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  *
- *	*	Redistributions in binary form must reproduce the above copyright notice,
- *		this list of conditions and the following disclaimer in the documentation
- *		and/or other materials provided with the distribution.
- *
- *	*	Neither the name of CosmicMind nor the names of its
- *		contributors may be used to endorse or promote products derived from
- *		this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
 import UIKit
 
-fileprivate var ToolbarContext: UInt8 = 0
-
-open class Toolbar: Bar {
+open class Toolbar: Bar, Themeable {
   /// A convenience property to set the titleLabel.text.
   @IBInspectable
   open var title: String? {
@@ -47,7 +40,7 @@ open class Toolbar: Bar {
   
   /// Title label.
   @IBInspectable
-  open let titleLabel = UILabel()
+  public let titleLabel = UILabel()
   
   /// A convenience property to set the detailLabel.text.
   @IBInspectable
@@ -63,10 +56,29 @@ open class Toolbar: Bar {
   
   /// Detail label.
   @IBInspectable
-  open let detailLabel = UILabel()
+  public let detailLabel = UILabel()
+  
+  open override var leftViews: [UIView] {
+    didSet {
+      prepareIconButtons(leftViews)
+    }
+  }
+  
+  open override var centerViews: [UIView] {
+    didSet {
+      prepareIconButtons(centerViews)
+    }
+  }
+  
+  open override var rightViews: [UIView] {
+    didSet {
+      prepareIconButtons(rightViews)
+    }
+  }
   
   deinit {
-    removeObserver(self, forKeyPath: #keyPath(titleLabel.textAlignment))
+    titleLabelTextAlignmentObserver.invalidate()
+    titleLabelTextAlignmentObserver = nil
   }
   
   /**
@@ -85,15 +97,6 @@ open class Toolbar: Bar {
    */
   public override init(frame: CGRect) {
     super.init(frame: frame)
-  }
-  
-  open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-    guard "titleLabel.textAlignment" == keyPath else {
-      super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-      return
-    }
-    
-    contentViewAlignment = .center == titleLabel.textAlignment ? .center : .full
   }
   
   open override func layoutSubviews() {
@@ -143,23 +146,59 @@ open class Toolbar: Bar {
     prepareTitleLabel()
     prepareDetailLabel()
   }
+  
+  /**
+   Applies the given theme.
+   - Parameter theme: A Theme.
+   */
+  open func apply(theme: Theme) {
+    backgroundColor = theme.primary
+    (leftViews + rightViews + centerViews).forEach {
+      guard let v = $0 as? IconButton, v.isThemingEnabled else {
+        return
+      }
+      
+      v.apply(theme: theme)
+    }
+    
+    if !((titleLabel as? Themeable)?.isThemingEnabled == false) {
+      titleLabel.textColor = theme.onPrimary
+    }
+    
+    if !((detailLabel as? Themeable)?.isThemingEnabled == false) {
+      detailLabel.textColor = theme.onPrimary
+    }
+  }
+  
+  /// A reference to titleLabel.textAlignment observation.
+  private var titleLabelTextAlignmentObserver: NSKeyValueObservation!
 }
 
-fileprivate extension Toolbar {
+private extension Toolbar {
   /// Prepares the titleLabel.
   func prepareTitleLabel() {
     titleLabel.textAlignment = .center
     titleLabel.contentScaleFactor = Screen.scale
-    titleLabel.font = RobotoFont.medium(with: 17)
+    titleLabel.font = Theme.font.medium(with: 17)
     titleLabel.textColor = Color.darkText.primary
-    addObserver(self, forKeyPath: #keyPath(titleLabel.textAlignment), options: [], context: &ToolbarContext)
+    titleLabelTextAlignmentObserver = titleLabel.observe(\.textAlignment) { [weak self] titleLabel, _ in
+      self?.contentViewAlignment = .center == titleLabel.textAlignment ? .center : .full
+    }
   }
   
   /// Prepares the detailLabel.
   func prepareDetailLabel() {
     detailLabel.textAlignment = .center
     detailLabel.contentScaleFactor = Screen.scale
-    detailLabel.font = RobotoFont.regular(with: 12)
+    detailLabel.font = Theme.font.regular(with: 12)
     detailLabel.textColor = Color.darkText.secondary
+  }
+  
+  func prepareIconButtons(_ views: [UIView]) {
+    views.forEach {
+      ($0 as? IconButton)?.themingStyle = .onPrimary
+    }
+    
+    applyCurrentTheme()
   }
 }

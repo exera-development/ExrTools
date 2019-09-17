@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import SnapKit
 import RxSwift
 import RxCocoa
 import Material
+import SnapKit
 
 public protocol ExrViewControllerProtocol {
     func initView() 
@@ -145,10 +145,12 @@ open class ExrUIViewController: UIViewController {
         }
         
         backButton.rx.tap
-            .debounce(0.1, scheduler: MainScheduler.instance)
-            .subscribe({ _ in
-                self.navigationController?.popViewController(animated: true)
+            .asObservable()
+            .timeout(.milliseconds(100), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { (_) in
+                 self.navigationController?.popViewController(animated: true)
             }).disposed(by: disposeBag)
+            
         
     }
     

@@ -1,44 +1,39 @@
 /*
- * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * The MIT License (MIT)
+ *
+ * Copyright (C) 2019, CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- *	*	Redistributions of source code must retain the above copyright notice, this
- *		list of conditions and the following disclaimer.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  *
- *	*	Redistributions in binary form must reproduce the above copyright notice,
- *		this list of conditions and the following disclaimer in the documentation
- *		and/or other materials provided with the distribution.
- *
- *	*	Neither the name of CosmicMind nor the names of its
- *		contributors may be used to endorse or promote products derived from
- *		this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
 import UIKit
 import Motion
 
-open class Button: UIButton, Pulseable, PulseableLayer {
+open class Button: UIButton, Pulseable, PulseableLayer, Themeable {
   /**
    A CAShapeLayer used to manage elements that would be affected by
    the clipToBounds property of the backing layer. For example, this
    allows the dropshadow effect on the backing layer, while clipping
    the image to a desired shape within the visualLayer.
    */
-  open let visualLayer = CAShapeLayer()
+  public let visualLayer = CAShapeLayer()
   
   /// A Pulse reference.
   internal var pulse: Pulse!
@@ -184,30 +179,32 @@ open class Button: UIButton, Pulseable, PulseableLayer {
    */
   public override init(frame: CGRect) {
     super.init(frame: frame)
+    /// Set these here to avoid overriding storyboard values
     tintColor = Color.blue.base
+    titleLabel?.font = Theme.font.regular(with: fontSize)
     prepare()
   }
   
   /**
    A convenience initializer that acceps an image and tint
    - Parameter image: A UIImage.
-   - Parameter tintColor: A UI
+   - Parameter tintColor: A UIColor.
    */
-  public init(image: UIImage?, tintColor: UIColor = Color.blue.base) {
+  public init(image: UIImage?, tintColor: UIColor? = nil) {
     super.init(frame: .zero)
-    prepare(with: image, tintColor: tintColor)
     prepare()
+    prepare(with: image, tintColor: tintColor)
   }
   
   /**
    A convenience initializer that acceps a title and title
    - Parameter title: A String.
-   - Parameter titleColor: A UI
+   - Parameter titleColor: A UIColor.
    */
-  public init(title: String?, titleColor: UIColor = Color.blue.base) {
+  public init(title: String?, titleColor: UIColor? = nil) {
     super.init(frame: .zero)
-    prepare(with: title, titleColor: titleColor)
     prepare()
+    prepare(with: title, titleColor: titleColor)
   }
   
   open override func layoutSubviews() {
@@ -267,7 +264,7 @@ open class Button: UIButton, Pulseable, PulseableLayer {
       return
     }
     
-    bringSubview(toFront: v)
+    bringSubviewToFront(v)
   }
   
   /**
@@ -281,7 +278,14 @@ open class Button: UIButton, Pulseable, PulseableLayer {
     contentScaleFactor = Screen.scale
     prepareVisualLayer()
     preparePulse()
+    applyCurrentTheme()
   }
+  
+  /**
+   Applies the given theme.
+   - Parameter theme: A Theme.
+   */
+  open func apply(theme: Theme) { }
 }
 
 extension Button {
@@ -302,9 +306,9 @@ extension Button {
    - Parameter image: A UIImage.
    - Parameter tintColor: A UI
    */
-  fileprivate func prepare(with image: UIImage?, tintColor: UIColor) {
+  fileprivate func prepare(with image: UIImage?, tintColor: UIColor?) {
     self.image = image
-    self.tintColor = tintColor
+    self.tintColor = tintColor ?? self.tintColor
   }
   
   /**
@@ -312,9 +316,9 @@ extension Button {
    - Parameter title: A String.
    - Parameter titleColor: A UI
    */
-  fileprivate func prepare(with title: String?, titleColor: UIColor) {
+  fileprivate func prepare(with title: String?, titleColor: UIColor?) {
     self.title = title
-    self.titleColor = titleColor
+    self.titleColor = titleColor ?? self.titleColor
   }
 }
 

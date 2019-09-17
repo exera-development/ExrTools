@@ -12,13 +12,6 @@
 		5813122A219321DC00CA0B31 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */; };
 		5813122B219321DC00CA0B31 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58131227219321DC00CA0B31 /* MavenPro-Bold.ttf */; };
 		5813122D2193223100CA0B31 /* ExrFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813122C2193223100CA0B31 /* ExrFonts.swift */; };
-		5813122F2193934D00CA0B31 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813122E2193934D00CA0B31 /* Material.framework */; };
-		581312312193935100CA0B31 /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312302193935100CA0B31 /* Motion.framework */; };
-		581312352193935800CA0B31 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312342193935800CA0B31 /* RxAtomic.framework */; };
-		581312372193935C00CA0B31 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312362193935C00CA0B31 /* RxBlocking.framework */; };
-		581312392193935F00CA0B31 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581312382193935F00CA0B31 /* RxCocoa.framework */; };
-		5813123B2193936300CA0B31 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813123A2193936300CA0B31 /* RxSwift.framework */; };
-		5813123D2193936900CA0B31 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5813123C2193936900CA0B31 /* SnapKit.framework */; };
 		5813E02D219C4BCB002777D8 /* ExrViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813E02C219C4BCB002777D8 /* ExrViewState.swift */; };
 		5813E02F219C4E04002777D8 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813E02E219C4E04002777D8 /* UIAlertController.swift */; };
 		5813E031219C58EC002777D8 /* ExrUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813E030219C58EC002777D8 /* ExrUtils.swift */; };
@@ -32,6 +25,15 @@
 		582FDA3521F5B0E50027FAC0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582FDA3421F5B0E50027FAC0 /* Date.swift */; };
 		587B8D002192197B007F9756 /* ExrTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 587B8CFE2192197B007F9756 /* ExrTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		587B8D0721921E1B007F9756 /* ExrCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587B8D0621921E1B007F9756 /* ExrCheckBox.swift */; };
+		58DCE7EB2330203D005683E8 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7E22330203B005683E8 /* RxRelay.framework */; };
+		58DCE7EC2330203D005683E8 /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7E32330203B005683E8 /* Motion.framework */; };
+		58DCE7ED2330203D005683E8 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7E42330203B005683E8 /* RxTest.framework */; };
+		58DCE7EE2330203D005683E8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7E52330203B005683E8 /* SnapKit.framework */; };
+		58DCE7EF2330203D005683E8 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7E62330203C005683E8 /* Material.framework */; };
+		58DCE7F02330203D005683E8 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7E72330203C005683E8 /* RxBlocking.framework */; };
+		58DCE7F12330203D005683E8 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7E82330203C005683E8 /* RxCocoa.framework */; };
+		58DCE7F22330203D005683E8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7E92330203C005683E8 /* RxSwift.framework */; };
+		58DCE7F32330203D005683E8 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DCE7EA2330203C005683E8 /* Rswift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,13 +42,6 @@
 		58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
 		58131227219321DC00CA0B31 /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
 		5813122C2193223100CA0B31 /* ExrFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExrFonts.swift; sourceTree = "<group>"; };
-		5813122E2193934D00CA0B31 /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = Carthage/Build/iOS/Material.framework; sourceTree = "<group>"; };
-		581312302193935100CA0B31 /* Motion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Motion.framework; path = Carthage/Build/iOS/Motion.framework; sourceTree = "<group>"; };
-		581312342193935800CA0B31 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
-		581312362193935C00CA0B31 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		581312382193935F00CA0B31 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		5813123A2193936300CA0B31 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		5813123C2193936900CA0B31 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		5813E02C219C4BCB002777D8 /* ExrViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExrViewState.swift; sourceTree = "<group>"; };
 		5813E02E219C4E04002777D8 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		5813E030219C58EC002777D8 /* ExrUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExrUtils.swift; sourceTree = "<group>"; };
@@ -62,6 +57,15 @@
 		587B8CFE2192197B007F9756 /* ExrTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExrTools.h; sourceTree = "<group>"; };
 		587B8CFF2192197B007F9756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		587B8D0621921E1B007F9756 /* ExrCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExrCheckBox.swift; sourceTree = "<group>"; };
+		58DCE7E22330203B005683E8 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		58DCE7E32330203B005683E8 /* Motion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Motion.framework; path = Carthage/Build/iOS/Motion.framework; sourceTree = "<group>"; };
+		58DCE7E42330203B005683E8 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		58DCE7E52330203B005683E8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		58DCE7E62330203C005683E8 /* Material.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Material.framework; path = Carthage/Build/iOS/Material.framework; sourceTree = "<group>"; };
+		58DCE7E72330203C005683E8 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		58DCE7E82330203C005683E8 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		58DCE7E92330203C005683E8 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		58DCE7EA2330203C005683E8 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,13 +73,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5813122F2193934D00CA0B31 /* Material.framework in Frameworks */,
-				581312312193935100CA0B31 /* Motion.framework in Frameworks */,
-				581312352193935800CA0B31 /* RxAtomic.framework in Frameworks */,
-				581312372193935C00CA0B31 /* RxBlocking.framework in Frameworks */,
-				581312392193935F00CA0B31 /* RxCocoa.framework in Frameworks */,
-				5813123B2193936300CA0B31 /* RxSwift.framework in Frameworks */,
-				5813123D2193936900CA0B31 /* SnapKit.framework in Frameworks */,
+				58DCE7EB2330203D005683E8 /* RxRelay.framework in Frameworks */,
+				58DCE7EC2330203D005683E8 /* Motion.framework in Frameworks */,
+				58DCE7ED2330203D005683E8 /* RxTest.framework in Frameworks */,
+				58DCE7EE2330203D005683E8 /* SnapKit.framework in Frameworks */,
+				58DCE7EF2330203D005683E8 /* Material.framework in Frameworks */,
+				58DCE7F02330203D005683E8 /* RxBlocking.framework in Frameworks */,
+				58DCE7F12330203D005683E8 /* RxCocoa.framework in Frameworks */,
+				58DCE7F22330203D005683E8 /* RxSwift.framework in Frameworks */,
+				58DCE7F32330203D005683E8 /* Rswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,13 +91,15 @@
 		371E46DFFFBDE90DD69D72FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5813123C2193936900CA0B31 /* SnapKit.framework */,
-				5813123A2193936300CA0B31 /* RxSwift.framework */,
-				581312382193935F00CA0B31 /* RxCocoa.framework */,
-				581312362193935C00CA0B31 /* RxBlocking.framework */,
-				581312342193935800CA0B31 /* RxAtomic.framework */,
-				581312302193935100CA0B31 /* Motion.framework */,
-				5813122E2193934D00CA0B31 /* Material.framework */,
+				58DCE7E62330203C005683E8 /* Material.framework */,
+				58DCE7E32330203B005683E8 /* Motion.framework */,
+				58DCE7EA2330203C005683E8 /* Rswift.framework */,
+				58DCE7E72330203C005683E8 /* RxBlocking.framework */,
+				58DCE7E82330203C005683E8 /* RxCocoa.framework */,
+				58DCE7E22330203B005683E8 /* RxRelay.framework */,
+				58DCE7E92330203C005683E8 /* RxSwift.framework */,
+				58DCE7E42330203B005683E8 /* RxTest.framework */,
+				58DCE7E52330203B005683E8 /* SnapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -252,7 +260,6 @@
 			inputPaths = (
 				"$(SRCROOT)//Carthage/Build/iOS/Material.framework",
 				"$(SRCROOT)//Carthage/Build/iOS/Motion.framework",
-				"$(SRCROOT)//Carthage/Build/iOS/RxAtomic.framework",
 				"$(SRCROOT)//Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)//Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)//Carthage/Build/iOS/RxSwift.framework",
@@ -432,7 +439,7 @@
 				);
 				INFOPLIST_FILE = ExrTools/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +449,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -464,7 +471,7 @@
 				);
 				INFOPLIST_FILE = ExrTools/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,7 +480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.exera.ExrTools;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
