@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ExrTools"
-  s.version      = "0.0.12"
+  s.version      = "0.0.13"
   s.summary      = "It's a collection of Tools"
 
   # This description is used to generate tags and improve search results.
@@ -138,7 +138,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
-  s.dependency 'SnapKit', '~> 5.0.0'
+  s.dependency 'SnapKit', '~> 5.0.1'
   s.dependency 'RxSwift', '~> 5.0.0'
   s.dependency 'RxCocoa', '~> 5.0.0'
   s.dependency 'Motion', '~> 3.1.0'
