@@ -1,4 +1,2 @@
-github "mac-cain13/R.swift.Library"
-github "SnapKit/SnapKit" ~> 5.0.1
+github "SnapKit/SnapKit" ~> 5.0.0
 github "ReactiveX/RxSwift" ~> 5.0
-github "CosmicMind/Material"

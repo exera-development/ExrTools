@@ -23,104 +23,10 @@
 		582D8A47219227DA00C30812 /* ExrUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A46219227DA00C30812 /* ExrUIViewController.swift */; };
 		582D8A49219236AB00C30812 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D8A48219236AB00C30812 /* Colors.swift */; };
 		582FDA3521F5B0E50027FAC0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582FDA3421F5B0E50027FAC0 /* Date.swift */; };
-		5859D3842331013B00A3DD91 /* Libraries in Resources */ = {isa = PBXBuildFile; fileRef = 5859D3832331013B00A3DD91 /* Libraries */; };
-		5859D385233101B000A3DD91 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859D3662330FECE00A3DD91 /* RxBlocking.framework */; };
-		5859D386233101B000A3DD91 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859D3622330FECE00A3DD91 /* RxCocoa.framework */; };
-		5859D387233101B000A3DD91 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859D3642330FECE00A3DD91 /* RxRelay.framework */; };
-		5859D388233101B000A3DD91 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859D3602330FECE00A3DD91 /* RxSwift.framework */; };
-		5859D389233101B000A3DD91 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859D3682330FECE00A3DD91 /* RxTest.framework */; };
-		5859D38A233101B000A3DD91 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859D3792330FEEF00A3DD91 /* SnapKit.framework */; };
 		587B8D002192197B007F9756 /* ExrTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 587B8CFE2192197B007F9756 /* ExrTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		587B8D0721921E1B007F9756 /* ExrCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587B8D0621921E1B007F9756 /* ExrCheckBox.swift */; };
 		58DCE7F52330F7F2005683E8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DCE7F42330F7F2005683E8 /* UIImage.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5859D35F2330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C8A56AD71AD7424700B4673B;
-			remoteInfo = RxSwift;
-		};
-		5859D3612330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C809396D1B8A71760088E94D;
-			remoteInfo = RxCocoa;
-		};
-		5859D3632330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A2897D53225CA1E7004EA481;
-			remoteInfo = RxRelay;
-		};
-		5859D3652330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C8093BC71B8A71F00088E94D;
-			remoteInfo = RxBlocking;
-		};
-		5859D3672330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C88FA50C1C25C44800CCFEA4;
-			remoteInfo = RxTest;
-		};
-		5859D3692330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C83508C31C386F6F0027C24C;
-			remoteInfo = "AllTests-iOS";
-		};
-		5859D36B2330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C83509841C38740E0027C24C;
-			remoteInfo = "AllTests-tvOS";
-		};
-		5859D36D2330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C83509941C38742C0027C24C;
-			remoteInfo = "AllTests-macOS";
-		};
-		5859D36F2330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C85BA04B1C3878740075D68E;
-			remoteInfo = Microoptimizations;
-		};
-		5859D3712330FECE00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C8E8BA551E2C181A00A4AC2C;
-			remoteInfo = Benchmarks;
-		};
-		5859D3782330FEEF00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3732330FED700A3DD91 /* SnapKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
-			remoteInfo = SnapKit;
-		};
-		5859D37A2330FEEF00A3DD91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5859D3732330FED700A3DD91 /* SnapKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
-			remoteInfo = "SnapKit Tests";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+ExrCheckBox.swift"; sourceTree = "<group>"; };
@@ -139,9 +45,6 @@
 		582D8A46219227DA00C30812 /* ExrUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExrUIViewController.swift; sourceTree = "<group>"; };
 		582D8A48219236AB00C30812 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		582FDA3421F5B0E50027FAC0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		5859D3522330FECD00A3DD91 /* Rx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rx.xcodeproj; path = Libraries/RxSwift/Rx.xcodeproj; sourceTree = SOURCE_ROOT; };
-		5859D3732330FED700A3DD91 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = Libraries/SnapKit/SnapKit.xcodeproj; sourceTree = SOURCE_ROOT; };
-		5859D3832331013B00A3DD91 /* Libraries */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Libraries; path = ExrTools/Libraries; sourceTree = SOURCE_ROOT; };
 		587B8CFB2192197B007F9756 /* ExrTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExrTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		587B8CFE2192197B007F9756 /* ExrTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExrTools.h; sourceTree = "<group>"; };
 		587B8CFF2192197B007F9756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,12 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5859D385233101B000A3DD91 /* RxBlocking.framework in Frameworks */,
-				5859D386233101B000A3DD91 /* RxCocoa.framework in Frameworks */,
-				5859D387233101B000A3DD91 /* RxRelay.framework in Frameworks */,
-				5859D388233101B000A3DD91 /* RxSwift.framework in Frameworks */,
-				5859D389233101B000A3DD91 /* RxTest.framework in Frameworks */,
-				5859D38A233101B000A3DD91 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,42 +71,6 @@
 				58131226219321DC00CA0B31 /* MavenPro-Regular.ttf */,
 			);
 			path = MavenPro;
-			sourceTree = "<group>";
-		};
-		5859D3512330FEC300A3DD91 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				5859D3832331013B00A3DD91 /* Libraries */,
-				5859D3732330FED700A3DD91 /* SnapKit.xcodeproj */,
-				5859D3522330FECD00A3DD91 /* Rx.xcodeproj */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
-		5859D3532330FECD00A3DD91 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5859D3602330FECE00A3DD91 /* RxSwift.framework */,
-				5859D3622330FECE00A3DD91 /* RxCocoa.framework */,
-				5859D3642330FECE00A3DD91 /* RxRelay.framework */,
-				5859D3662330FECE00A3DD91 /* RxBlocking.framework */,
-				5859D3682330FECE00A3DD91 /* RxTest.framework */,
-				5859D36A2330FECE00A3DD91 /* AllTests-iOS.xctest */,
-				5859D36C2330FECE00A3DD91 /* AllTests-tvOS.xctest */,
-				5859D36E2330FECE00A3DD91 /* AllTests-macOS.xctest */,
-				5859D3702330FECE00A3DD91 /* PerformanceTests.app */,
-				5859D3722330FECE00A3DD91 /* Benchmarks.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5859D3742330FED700A3DD91 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5859D3792330FEEF00A3DD91 /* SnapKit.framework */,
-				5859D37B2330FEEF00A3DD91 /* SnapKit Tests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		5859D37C2330FF4300A3DD91 /* Frameworks */ = {
@@ -249,7 +110,6 @@
 		587B8D082192237D007F9756 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5859D3512330FEC300A3DD91 /* Libraries */,
 				587B8D0621921E1B007F9756 /* ExrCheckBox.swift */,
 				5813121A2193134A00CA0B31 /* Reactive+ExrCheckBox.swift */,
 				58131223219321C200CA0B31 /* MavenPro */,
@@ -335,110 +195,12 @@
 			mainGroup = 587B8CF12192197B007F9756;
 			productRefGroup = 587B8CFC2192197B007F9756 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 5859D3532330FECD00A3DD91 /* Products */;
-					ProjectRef = 5859D3522330FECD00A3DD91 /* Rx.xcodeproj */;
-				},
-				{
-					ProductGroup = 5859D3742330FED700A3DD91 /* Products */;
-					ProjectRef = 5859D3732330FED700A3DD91 /* SnapKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				587B8CFA2192197B007F9756 /* ExrTools */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		5859D3602330FECE00A3DD91 /* RxSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxSwift.framework;
-			remoteRef = 5859D35F2330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D3622330FECE00A3DD91 /* RxCocoa.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxCocoa.framework;
-			remoteRef = 5859D3612330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D3642330FECE00A3DD91 /* RxRelay.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxRelay.framework;
-			remoteRef = 5859D3632330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D3662330FECE00A3DD91 /* RxBlocking.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxBlocking.framework;
-			remoteRef = 5859D3652330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D3682330FECE00A3DD91 /* RxTest.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RxTest.framework;
-			remoteRef = 5859D3672330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D36A2330FECE00A3DD91 /* AllTests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "AllTests-iOS.xctest";
-			remoteRef = 5859D3692330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D36C2330FECE00A3DD91 /* AllTests-tvOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "AllTests-tvOS.xctest";
-			remoteRef = 5859D36B2330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D36E2330FECE00A3DD91 /* AllTests-macOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "AllTests-macOS.xctest";
-			remoteRef = 5859D36D2330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D3702330FECE00A3DD91 /* PerformanceTests.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			name = PerformanceTests.app;
-			path = Microoptimizations.app;
-			remoteRef = 5859D36F2330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D3722330FECE00A3DD91 /* Benchmarks.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Benchmarks.xctest;
-			remoteRef = 5859D3712330FECE00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D3792330FEEF00A3DD91 /* SnapKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SnapKit.framework;
-			remoteRef = 5859D3782330FEEF00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5859D37B2330FEEF00A3DD91 /* SnapKit Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SnapKit Tests.xctest";
-			remoteRef = 5859D37A2330FEEF00A3DD91 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		587B8CF92192197B007F9756 /* Resources */ = {
@@ -447,7 +209,6 @@
 			files = (
 				5813122A219321DC00CA0B31 /* MavenPro-Regular.ttf in Resources */,
 				58131228219321DC00CA0B31 /* MavenPro-Medium.ttf in Resources */,
-				5859D3842331013B00A3DD91 /* Libraries in Resources */,
 				5813122B219321DC00CA0B31 /* MavenPro-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
