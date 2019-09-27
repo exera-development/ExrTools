@@ -16,8 +16,6 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ExrTools"
-  s.version      = "0.0.14"
-  s.summary      = "It's a collection of Tools"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -68,7 +66,6 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "10.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -143,5 +140,7 @@ Pod::Spec.new do |s|
   #s.dependency 'RxCocoa', '~> 5.0.0'
   #s.dependency 'Motion', '~> 3.1.0'
   #s.dependency 'Material', '~> 3.1.0'
+  s.dependency 'SnapKit', '~> 4.2.0'
+  s.dependency 'RxSwift', '~> 4.5.0'
 
 end
